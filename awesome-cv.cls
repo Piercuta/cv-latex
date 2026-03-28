@@ -755,6 +755,38 @@
       {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\}
   \end{tabular*}%
 }
+% Same layout as \cventry with an optional summary before the bullet list.
+% \descriptionstyle uses \newcommand*, so its argument must not contain \par;
+% intro and body are therefore set in one group using the same font as \descriptionstyle.
+% Use \begin{cvitemsafterintro}...\end{cvitemsafterintro} for the list (not cvitems: its
+% negative top skip is meant only when bullets follow the job header directly).
+% Usage: \cventrywithintro{<position>}{<title>}{<location>}{<date>}{<intro>}{<description>}
+\newcommand{\cventrywithintro}[6]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    \ifstrempty{#5}
+      {%
+        \ifstrempty{#6}
+          {}
+          {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}} \\}%
+      }
+      {%
+        \ifstrempty{#6}
+          {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\}
+          {\multicolumn{2}{L{\textwidth}}{%
+            {\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}%
+              #5\par\vspace{0.5ex}%
+              #6}%
+          } \\}%
+      }%
+  \end{tabular*}%
+}
 
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
@@ -818,6 +850,18 @@
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
   \vspace{-4.0mm}
+  \begin{justify}
+  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{1.0mm}
+}
+% Same as cvitems but without negative top skip (use after an intro paragraph in \cventrywithintro).
+\newenvironment{cvitemsafterintro}{%
+  \vspace{0.75ex}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
