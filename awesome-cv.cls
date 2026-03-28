@@ -88,6 +88,8 @@
   BoldItalicFont=* Bold Italic,
   FontFace={l}{n}{Font=* Light},
   FontFace={l}{it}{Font=* Light Italic},
+  FontFace={sb}{n}{Font=* SemiBold},
+  FontFace={sb}{it}{Font=* SemiBold Italic},
 ]
 \setsansfont{Source Sans 3}[
   UprightFont=*,
@@ -96,6 +98,8 @@
   BoldItalicFont=* Bold Italic,
   FontFace={l}{n}{Font=* Light},
   FontFace={l}{it}{Font=* Light Italic},
+  FontFace={sb}{n}{Font=* SemiBold},
+  FontFace={sb}{it}{Font=* SemiBold Italic},
 ]
 \newfontfamily\roboto{Roboto}[
   UprightFont=*,
@@ -216,6 +220,18 @@
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\cvitemlead}[1]{{\fontsize{9pt}{1em}\bodyfont\mdseries\color{darktext} #1}}
+
+% Label before ':' in experience bullets. Optional: [size in pt][weight] before the text.
+% Default: 9pt + md (regular weight, darktext only). Weights: sb = SemiBold, bf = Bold, md = regular.
+% Examples: \cvitemlead{Foo:}  |  \cvitemlead[8.5]{Foo:}  |  \cvitemlead[][bf]{Foo:}
+%\NewDocumentCommand{\cvitemlead}{ O{9} O{md} m }{%
+%   {\fontsize{#1pt}{1em}\bodyfont\upshape\color{darktext}%
+%   \ifthenelse{\equal{#2}{bf}}{\bfseries}{%
+%   \ifthenelse{\equal{#2}{md}}{\mdseries}{%
+%   \fontseries{sb}\selectfont}}%
+%   #3}%
+%}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
