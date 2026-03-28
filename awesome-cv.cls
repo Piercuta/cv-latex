@@ -776,8 +776,9 @@
 % intro and body are therefore set in one group using the same font as \descriptionstyle.
 % Use \begin{cvitemsafterintro}...\end{cvitemsafterintro} for the list (not cvitems: its
 % negative top skip is meant only when bullets follow the job header directly).
-% Usage: \cventrywithintro{<position>}{<title>}{<location>}{<date>}{<intro>}{<description>}
-\newcommand{\cventrywithintro}[6]{%
+% 7th arg: technologies only (no bullet); "Stack:" is prefixed automatically. Use {} if none.
+% Usage: \cventrywithintro{<position>}{<title>}{<location>}{<date>}{<intro>}{<cvitems>}{<stack>}
+\newcommand{\cventrywithintro}[7]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
@@ -786,21 +787,18 @@
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \ifstrempty{#5}
-      {%
-        \ifstrempty{#6}
-          {}
-          {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#6}} \\}%
-      }
-      {%
-        \ifstrempty{#6}
-          {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\}
-          {\multicolumn{2}{L{\textwidth}}{%
-            {\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}%
-              #5\par\vspace{0.5ex}%
-              #6}%
-          } \\}%
-      }%
+    \ifstrempty{#5#6#7}
+      {}
+      {\multicolumn{2}{L{\textwidth}}{%
+        {\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}%
+          \ifstrempty{#5}{}{#5\par\vspace{0.5ex}}%
+          #6%
+          \ifstrempty{#7}{}{%
+            \par\vspace{0.55ex}%
+            \cvitemlead{Stack:} #7%
+          }%
+        }%
+      } \\}%
   \end{tabular*}%
 }
 
