@@ -2,6 +2,21 @@
 
 Curriculum vitae personnel basé sur le modèle [Awesome-CV](https://github.com/posquit0/Awesome-CV). Les sources principales sont dans `docs/` ; la classe `awesome-cv.cls` est à la **racine du dépôt**.
 
+## Prévisualisation (PDF)
+
+Compile d’abord les PDF (Docker ou `make`), puis :
+
+| | Lien |
+|---|------|
+| **CV court** | [**Ouvrir `docs/cv.pdf`**](docs/cv.pdf) |
+| **CV étendu** | [**Ouvrir `docs/cv-long.pdf`**](docs/cv-long.pdf) |
+
+- Sur **GitHub** / **GitLab** : en affichant le README sur le site, un clic sur le lien ouvre le fichier ; GitHub propose un lecteur PDF intégré.
+- **En local** (Cursor, VS Code, etc.) : `Ctrl`+clic ou clic selon l’outil ouvre souvent le PDF dans l’IDE ou le lecteur système.
+- Les liens ne montrent rien tant que les fichiers **n’existent pas** ou **ne sont pas poussés** sur le dépôt distant (pense à committer les `.pdf` si tu veux les partager via le README).
+
+> **Aperçu visuel (image) dans le README** : le Markdown n’affiche pas un PDF comme une image. Si tu veux une **miniature cliquable**, exporte la première page en PNG (ex. `docs/images/cv-preview-short.png`) et ajoute par exemple `[![Aperçu CV court](docs/images/cv-preview-short.png)](docs/cv.pdf)`.
+
 ## Deux versions PDF
 
 | Fichier source | PDF produit | Rôle |
