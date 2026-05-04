@@ -1,0 +1,65 @@
+% Shared CV body: set \cvvariant to `short` (default CV) or `long` (extended) before \input{cv-root.tex}
+% (see cv.tex = short, cv-long.tex = long).
+\providecommand{\cvvariant}{short}
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+\colorlet{awesome}{awesome-skyblue}
+
+\setbool{acvSectionColorHighlight}{true}
+
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\photo{./docs/images/face_square.png}
+\name{Pierre}{Courteille}
+\position{Cloud Architect{\enskip\cdotp\enskip}DevOps Engineer}
+\address{Geneva, Switzerland}
+
+\mobile{(+33) 06 08 04 22 44}
+\email{pierre.courteille@gmail.com}
+\github{piercuta}
+\linkedin{pierre-courteille}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader
+
+\ifthenelse{\equal{\cvvariant}{short}}{%
+\makecvfooter
+  {\today}
+  {Pierre Courteille~~~·~~~Curriculum Vitae}
+  {\thepage}%
+}{%
+\makecvfooter
+  {\today}
+  {Pierre Courteille~~~·~~~Curriculum Vitae (extended)}
+  {\thepage}%
+}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%-------------------------------------------------------------------------------
+\input{cv/education.tex}
+\ifthenelse{\equal{\cvvariant}{long}}{%
+  \input{cv/skills-long.tex}}{%
+  \input{cv/skills-short.tex}}
+\input{cv/certificates.tex}
+\ifthenelse{\equal{\cvvariant}{long}}{%
+  \input{cv/experience-long.tex}}{%
+  \input{cv/experience-short.tex}}
+
+
+%-------------------------------------------------------------------------------
+\end{document}

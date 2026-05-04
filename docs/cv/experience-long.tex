@@ -1,0 +1,100 @@
+% Long CV: expand bullets / add outcomes (edit and replace with your own detail).
+%-------------------------------------------------------------------------------
+\cvsection{Experience}
+
+
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {Cloud Engineer}
+    {Qim info / International Electrotechnical Commission (IEC)}
+    {Geneva, Switzerland}
+    {Oct. 2025 - Present}
+    {Design and operation of multi-account AWS environments for several applications, with emphasis on security, scalability, and automation. Partner with product and security stakeholders to keep tenant isolation, delivery speed, and operability aligned.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{SaaS architecture (Silo model):} multi-tenant design (1 tenant = 1 AWS account) via AWS Organizations; strong isolation (dedicated VPC patterns, IAM boundaries, data perimeter) and reduced blast radius for regulated workloads.}
+        \item {\cvitemlead{Multi-account governance \& security:} OU layout, SCP guardrails, centralized logging and audit expectations, least-privilege IAM roles, secure cross-account access (e.g.\ assume-role patterns, resource shares).}
+        \item {\cvitemlead{IaC \& delivery:} AWS CDK platform to deploy Docker microservices on ECS Fargate; standardized application pipelines, reusable constructs, automated tenant onboarding (accounts, baseline stacks, networking hooks).}
+        \item {\cvitemlead{Observability (multi-account / multi-region):} CloudWatch OAM, dedicated monitoring account, Grafana; centralized metrics/logs, SNS alerting, synthetic checks for critical user journeys across regions.}
+        \item {\cvitemlead{Operations \& reliability:} VPC lifecycle, WAF on CloudFront, EC2 $\rightarrow$ ECS migrations; log analytics with Athena and CloudWatch Logs Insights; troubleshooting runbooks and post-incident follow-up.}
+        \item {\cvitemlead{Cost \& efficiency:} tagging and allocation basics, right-sizing discussions with owners, visibility into spend drivers (where FinOps tooling applies).}
+      \end{cvitemsafterintro}
+    }
+    {AWS, AWS Organizations, CDK, Terraform, ECS Fargate, Docker, CloudWatch, Grafana, WAF, Athena, Python.}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {Cloud Engineer (freelance)}
+    {Premaccess}
+    {Paris, France}
+    {Jun. 2019 - Sep. 2025}
+    {Support for multiple clients on AWS cloud transformation: migration through optimization and scale-out, with strong automation, security, and performance focus. Work spanned greenfield builds, legacy modernization, and operational hardening.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{Cloud migration \& scalability:} led migrations and architecture evolution toward ECS, EKS, and serverless (Lambda, API Gateway); managed data on RDS, DynamoDB, Redshift, ElastiCache; capacity and scaling patterns per workload.}
+        \item {\cvitemlead{Network \& security:} multi-AZ VPC (public / private / isolated subnets), Security Groups, NACLs, VPC Endpoints; IAM Identity Center, SCPs, KMS encryption; reduced exposure and clearer network segmentation.}
+        \item {\cvitemlead{CI/CD \& IaC:} CodePipeline, CodeBuild, GitLab CI, Jenkins; CDK, CloudFormation, Terraform for repeatable environments and peer-reviewable change.}
+        \item {\cvitemlead{Observability \& FinOps:} CloudWatch, X-Ray, Config, Security Hub; dashboards for budgets, CUR, Cost Explorer; helped teams connect technical choices to spend.}
+        \item {\cvitemlead{Automation \& performance:} internal provisioning tooling (Python, Boto3); C\# refactor (+40\% throughput, 30\% lower latency); AWS SAM for serverless; L2/L3 support, architecture reviews, and knowledge transfer.}
+        \item {\cvitemlead{Stakeholder work:} workshops with client teams, prioritization of security vs.\ velocity trade-offs, documentation of standards (naming, tagging, baseline modules).}
+      \end{cvitemsafterintro}
+    }
+    {AWS, Python, Node.js, .NET Core, Docker, Kubernetes, CDK, Terraform.}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {.NET Instructor \& Software Engineer (freelance)}
+    {ISIKA}
+    {Paris, France}
+    {Mar. 2020 - Apr. 2023}
+    {C\# and .NET training with a focus on OOP and application design. Combined formal teaching with hands-on engineering so learners could ship small end-to-end applications.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{Technical training:} C\# fundamentals, OOP (classes, inheritance, polymorphism), desktop development (WinForms), debugging and code structure.}
+        \item {\cvitemlead{Application development:} guided learners through full apps including data persistence (LINQ, Entity Framework, MySQL), layering, and basic testing mindset.}
+        \item {\cvitemlead{Pedagogy:} project follow-up, individual coaching, rubrics for assessed deliverables; adapted pace to professional audiences.}
+        \item {\cvitemlead{Course material:} maintained exercises and examples aligned with workplace scenarios (CRUD, validation, simple UI patterns).}
+      \end{cvitemsafterintro}
+    }
+    {C\#, HTML5, Entity Framework, LINQ, MySQL, WinForms.}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {Software Quality Assurance Manager}
+    {Bassetti}
+    {Kolkata area, India}
+    {Feb. 2016 - May 2018}
+    {Built and led a QA organization in India: team leadership, large-scale test automation, and DevOps practices. Focus on throughput, traceability, and predictable releases.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{Hiring \& leadership:} recruited, trained, and led 25+ QA engineers; career paths, skills matrix, and on-boarding for distributed teams.}
+        \item {\cvitemlead{Automation \& tooling:} co-designed an internal platform executing 10,000+ API tests/hour; improved coverage, flakiness reduction, and reporting for leadership.}
+        \item {\cvitemlead{Quality \& delivery:} tight collaboration with development; automated feedback loops, daily test runs, shorter regression cycles before releases.}
+        \item {\cvitemlead{Process \& DevOps:} introduced DevOps-oriented practices (shared ownership of quality gates, CI integration), clearer QA--dev handoffs, faster cadence without sacrificing critical checks.}
+        \item {\cvitemlead{Metrics:} tracked defect trends, escape rate, and automation ROI to steer investment in the right layers of the stack.}
+      \end{cvitemsafterintro}
+    }
+    {C\#, .NET, Selenium, Jenkins, APIs, XML, Excel.}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {Optimization Engineer}
+    {Kronos Incorporated (Ad Opt)}
+    {Montreal, Canada}
+    {Jan. 2015 - Jan. 2016}
+    {Ad Opt (Kronos) --- optimization for airline crew planning (cost and operational efficiency). Mixed R\&D, heavy computational experiments, and customer-facing delivery.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{Algorithmic optimization:} performance gains via column generation and shortest-path strategies on large instances; profiling and memory-aware implementations in C/C++.}
+        \item {\cvitemlead{Validation:} intensive testing on thousands of instances; stress cases for edge constraints and stability before production rollout.}
+        \item {\cvitemlead{Production:} customer deployments, integration support, and tuning with operations teams.}
+        \item {\cvitemlead{R\&D:} presentations at GERAD; contributions to scientific publications; knowledge sharing on modeling choices and solver behavior.}
+        \item {\cvitemlead{Engineering practice:} Linux toolchain, GDB, Git workflows; collaboration with researchers and product on requirement formalization.}
+      \end{cvitemsafterintro}
+    }
+    {C, C++, Linux, GDB, Git.}
+
+%---------------------------------------------------------
+\end{cventries}
