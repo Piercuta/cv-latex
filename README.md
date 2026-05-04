@@ -1,126 +1,64 @@
-<h1 align="center">
-  <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
-    <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
-  </a>
-  <br />
-  Awesome CV
-</h1>
+# CV LaTeX (Awesome-CV)
 
-<p align="center">
-  LaTeX template for your outstanding job application
-</p>
+Curriculum vitae personnel basé sur le modèle [Awesome-CV](https://github.com/posquit0/Awesome-CV). Les sources principales sont dans `docs/` ; la classe `awesome-cv.cls` est à la **racine du dépôt**.
 
-<div align="center">
-  <a href="https://www.paypal.me/posquit0">
-    <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg" />
-  </a>
-  <a href="https://github.com/posquit0/Awesome-CV/actions/workflows/main.yml">
-    <img alt="GitHub Actions" src="https://github.com/posquit0/Awesome-CV/actions/workflows/main.yml/badge.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
-    <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf">
-    <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf">
-    <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
-  </a>
-</div>
+## Deux versions PDF
 
-<br />
+| Fichier source | PDF produit | Rôle |
+|----------------|-------------|------|
+| `docs/cv.tex` | **`docs/cv.pdf`** | Version **courte** : expérience et compétences compactes (usage courant). |
+| `docs/cv-long.tex` | **`docs/cv-long.pdf`** | Version **étendue** : expérience détaillée et compétences enrichies. |
 
-## What is Awesome CV?
+Les deux pointent vers `docs/cv-root.tex` (mise en page, en-tête, pied de page). La variante est fixée par `\def\cvvariant{short}` ou `\def\cvvariant{long}`.
 
-**Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
+- **Court** : `docs/cv/experience-short.tex`, `docs/cv/skills-short.tex`
+- **Long** : `docs/cv/experience-long.tex`, `docs/cv/skills-long.tex`
 
+Formation, certificats et autres sections sont partagés.
 
-## Donate
+## Compilation avec Docker (le plus simple)
 
-Please help keep this project alive! Donations are welcome and will go towards further development of this project.
+Inutile d’installer TeX Live localement : l’image fournit les paquets (dont `fontawesome6`) et les polices.
 
-    PayPal: paypal.me/posquit0
-
-*Thank you for your support!*
-
-## Preview
-
-#### Résumé
-
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
-
-| Page. 1 | Page. 2 |
-|:---:|:---:|
-| [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)  | [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) |
-
-#### Cover Letter
-
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
-
-| Without Sections | With Sections |
-|:---:|:---:|
-| [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
-
-
-## Quick Start
-
-* [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
-* [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
-
-**_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
-
-
-## How to Use
-
-#### Requirements
-
-A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
-You can [install TeX from upstream](https://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
-
-If you don't want to install the dependencies on your system, this can also be obtained via [Docker](https://docker.com).
-
-#### Usage
-
-At a command prompt, run
+**Depuis la racine du dépôt** (là où se trouve `awesome-cv.cls`) :
 
 ```bash
-xelatex {your-cv}.tex
+# Version courte → docs/cv.pdf
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD":/work -w /work/docs \
+  -e TEXINPUTS=/work: \
+  texlive/texlive:latest \
+  sh -c 'xelatex -interaction=nonstopmode -output-directory=. cv.tex && xelatex -interaction=nonstopmode -output-directory=. cv.tex'
+
+# Version longue → docs/cv-long.pdf
+docker run --rm --user "$(id -u):$(id -g)" \
+  -v "$PWD":/work -w /work/docs \
+  -e TEXINPUTS=/work: \
+  texlive/texlive:latest \
+  sh -c 'xelatex -interaction=nonstopmode -output-directory=. cv-long.tex && xelatex -interaction=nonstopmode -output-directory=. cv-long.tex'
 ```
 
-Or using docker:
+- **`TEXINPUTS=/work:`** : LaTeX trouve `awesome-cv.cls` à la racine du dépôt pendant que le répertoire de travail est `docs/` (où vivent `cv.tex`, `cv-root.tex` et les `\input{cv/...}`).
+- Le **double passage** `xelatex` évite les références / signets incomplets.
+
+Image utilisée : `texlive/texlive:latest` (premier tirage peut être long).
+
+## Compilation locale
+
+Avec TeX Live complet et outils à jour :
 
 ```bash
-docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc texlive/texlive:latest make
+make cv.pdf        # produit docs/cv.pdf
+make cv-long.pdf   # produit docs/cv-long.pdf
 ```
 
-In either case, this should result in the creation of ``{your-cv}.pdf``
+Le `Makefile` appelle **LuaLaTeX** ; les `.tex` peuvent indiquer **XeLaTeX** en en-tête. En cas de différence de rendu, privilégie la même commande que le commentaire `%!TEX TS-program` du fichier principal.
 
+## Typographie
 
-## Credit
+`docs/cv/cv-font-scale.tex` (chargé par `cv-root.tex`) augmente un peu les tailles par rapport au modèle d’origine. Pour revenir au gabarit Awesome-CV par défaut, commente `\input{cv/cv-font-scale.tex}` dans `docs/cv-root.tex` (et éventuellement repasse `\documentclass` en `11pt` si tu le souhaites).
 
-[**LaTeX**](https://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
+## Crédits
 
-[**FontAwesome6 LaTeX Package**](https://github.com/braniii/fontawesome) is a LaTeX package that provides access to the [Font Awesome 6](https://fontawesome.com/v6/icons) icon set.
-
-[**Roboto**](https://github.com/google/roboto) is the default font on Android and ChromeOS, and the recommended font for Google’s visual language, Material Design.
-
-[**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
-
-
-## Contact
-
-You are free to take my `.tex` file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
-
-If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc://irc.freenode.net/posquit0) and ask away. Click [here](https://kiwiirc.com/client/irc.freenode.net/posquit0) to connect.
-
-Good luck!
-
-
-## Maintainers
-- [posquit0](https://github.com/posquit0)
-- [OJFord](https://github.com/OJFord)
-
-
-## See Also
-
-* [Awesome Identity](https://github.com/posquit0/hugo-awesome-identity) - A single-page Hugo theme to introduce yourself.
+- [Awesome-CV](https://github.com/posquit0/Awesome-CV) — Claud D. Park (modèle d’origine, licence CC BY-SA 4.0).
+- Font Awesome 6 (paquet LaTeX), polices du modèle (ex. Source Sans 3) : voir la doc du dépôt upstream.
