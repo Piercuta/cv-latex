@@ -1,6 +1,6 @@
 % Long CV: expand bullets / add outcomes (edit and replace with your own detail).
 %-------------------------------------------------------------------------------
-\cvsection{Experience}
+\cvsection{Work Experience}
 
 
 \begin{cventries}
@@ -11,18 +11,18 @@
     {Qim info / International Electrotechnical Commission (IEC)}
     {Geneva, Switzerland}
     {Oct. 2025 - Present}
-    {Design and operation of multi-account AWS environments for several applications, with emphasis on security, scalability, and automation. Partner with product and security stakeholders to keep tenant isolation, delivery speed, and operability aligned.}
+    {The IEC is a Geneva-based international standards organization for electrical, electronic, and related technologies. Within IT, I own AWS topics end to end: design and delivery of a secure, scalable multi-tenant SaaS platform, plus continuous improvement of monitoring, observability, networking, and security to raise reliability, visibility, and performance.}
     {
       \begin{cvitemsafterintro}
-        \item {\cvitemlead{SaaS architecture (Silo model):} multi-tenant design (1 tenant = 1 AWS account) via AWS Organizations; strong isolation (dedicated VPC patterns, IAM boundaries, data perimeter) and reduced blast radius for regulated workloads.}
-        \item {\cvitemlead{Multi-account governance \& security:} OU layout, SCP guardrails, centralized logging and audit expectations, least-privilege IAM roles, secure cross-account access (e.g.\ assume-role patterns, resource shares).}
-        \item {\cvitemlead{IaC \& delivery:} AWS CDK platform to deploy Docker microservices on ECS Fargate; standardized application pipelines, reusable constructs, automated tenant onboarding (accounts, baseline stacks, networking hooks).}
-        \item {\cvitemlead{Observability (multi-account / multi-region):} CloudWatch OAM, dedicated monitoring account, Grafana; centralized metrics/logs, SNS alerting, synthetic checks for critical user journeys across regions.}
-        \item {\cvitemlead{Operations \& reliability:} VPC lifecycle, WAF on CloudFront, EC2 $\rightarrow$ ECS migrations; log analytics with Athena and CloudWatch Logs Insights; troubleshooting runbooks and post-incident follow-up.}
-        \item {\cvitemlead{Cost \& efficiency:} tagging and allocation basics, right-sizing discussions with owners, visibility into spend drivers (where FinOps tooling applies).}
+        \item {\cvitemlead{Networking:} multi-AZ VPCs with public, private, and isolated subnets; dedicated VPC per tenant with strict Security Group policies; controlled interconnectivity with AWS Transit Gateway.}
+        \item {\cvitemlead{Compute \& orchestration:} containerized workloads on ECS (Fargate); event-driven patterns with Lambda and API Gateway; EC2 with Auto Scaling Groups and ALB/NLB where workloads require it.}
+        \item {\cvitemlead{Data \& caching:} RDS (Aurora MySQL/PostgreSQL, Aurora Serverless v2); DocumentDB for document-oriented needs; ElastiCache (Redis, Memcached) for application caching and latency.}
+        \item {\cvitemlead{IaC \& tenant delivery:} one modular, reusable AWS CDK codebase to deploy full per-tenant infrastructure automatically; CloudFormation and Terraform for legacy or specific stacks; standardized architecture patterns and reproducible environments; industrialized client onboarding (AWS accounts + full stack provisioned in minutes).}
+        \item {\cvitemlead{Observability (multi-account / multi-region):} centralized observability in a dedicated monitoring account under AWS Organizations; CloudWatch Observability Access Manager (OAM); centralized metrics, logs, and traces; Amazon Managed Grafana; Prometheus-style application metrics; alerting with CloudWatch Alarms and SNS.}
+        \item {\cvitemlead{CI/CD \& automation:} advanced GitLab CI/CD pipelines for secure, automated infrastructure and application rollout across AWS accounts; dynamic, parameterized pipelines; idempotent deployments; build, test, and deploy microservices; IAM roles via STS (AssumeRole); CI tuning (parallel jobs, shorter build/deploy cycles).}
       \end{cvitemsafterintro}
     }
-    {AWS, AWS Organizations, CDK, Terraform, ECS Fargate, Docker, CloudWatch, Grafana, WAF, Athena, Python.}
+    {AWS (Organizations, CDK, CloudFormation, Terraform, ECS Fargate, Lambda, API Gateway, RDS, Aurora, DocumentDB, ElastiCache, Transit Gateway, CloudWatch, OAM, Grafana, GitLab CI, SNS, EC2, ALB, NLB), Python.}
 
 %---------------------------------------------------------
   \cventrywithintro
@@ -30,18 +30,21 @@
     {Premaccess}
     {Paris, France}
     {Jun. 2019 - Sep. 2025}
-    {Support for multiple clients on AWS cloud transformation: migration through optimization and scale-out, with strong automation, security, and performance focus. Work spanned greenfield builds, legacy modernization, and operational hardening.}
+    {Premaccess is a Franco-Swiss consultancy focused on digital transformation and managed AWS services. I supported many customers---including Smartpush, ATA Electronics, Cap Adrenaline, BNC, Fitizzy, Truffaut, Prestigia, and others---through full cloud migrations, ongoing evolution, and continuous optimization of their AWS estates.}
     {
       \begin{cvitemsafterintro}
-        \item {\cvitemlead{Cloud migration \& scalability:} led migrations and architecture evolution toward ECS, EKS, and serverless (Lambda, API Gateway); managed data on RDS, DynamoDB, Redshift, ElastiCache; capacity and scaling patterns per workload.}
-        \item {\cvitemlead{Network \& security:} multi-AZ VPC (public / private / isolated subnets), Security Groups, NACLs, VPC Endpoints; IAM Identity Center, SCPs, KMS encryption; reduced exposure and clearer network segmentation.}
-        \item {\cvitemlead{CI/CD \& IaC:} CodePipeline, CodeBuild, GitLab CI, Jenkins; CDK, CloudFormation, Terraform for repeatable environments and peer-reviewable change.}
-        \item {\cvitemlead{Observability \& FinOps:} CloudWatch, X-Ray, Config, Security Hub; dashboards for budgets, CUR, Cost Explorer; helped teams connect technical choices to spend.}
-        \item {\cvitemlead{Automation \& performance:} internal provisioning tooling (Python, Boto3); C\# refactor (+40\% throughput, 30\% lower latency); AWS SAM for serverless; L2/L3 support, architecture reviews, and knowledge transfer.}
-        \item {\cvitemlead{Stakeholder work:} workshops with client teams, prioritization of security vs.\ velocity trade-offs, documentation of standards (naming, tagging, baseline modules).}
+        \item {\cvitemlead{Cloud adoption \& growth:} end-to-end migrations to AWS, then iterative modernization as needs grew (containers, serverless, data platforms, edge distribution).}
+        \item {\cvitemlead{Network \& security:} multi-AZ VPCs (public / private / isolated subnets); hardened Security Groups and NACLs; VPC Endpoints and VPC Flow Logs; centralized identity with IAM Identity Center, IAM, and SCPs; encryption with KMS.}
+        \item {\cvitemlead{Compute \& orchestration:} ECS (Fargate) and EKS for resilient microservices; Lambda + API Gateway for event-driven workloads; EC2 with Auto Scaling and ALB/NLB when required.}
+        \item {\cvitemlead{Data \& analytics:} RDS (Aurora MySQL/PostgreSQL, Serverless v2); DynamoDB for low-latency NoSQL; Redshift for warehousing and heavy analytics; ElastiCache where applicable.}
+        \item {\cvitemlead{Messaging \& integration:} SQS, SNS, and EventBridge for asynchronous and event-driven integration.}
+        \item {\cvitemlead{Edge \& distribution:} CloudFront with OAC/OAI and WAF; Route~53 and ACM for DNS and TLS automation.}
+        \item {\cvitemlead{Observability, security ops \& FinOps:} CloudWatch Logs/Metrics/Alarms, X-Ray, GuardDuty, AWS Config, Security Hub; cost dashboards (Cost Explorer, Budgets, CUR) and FinOps-oriented optimization.}
+        \item {\cvitemlead{CI/CD \& IaC:} AWS CDK, CloudFormation, and Terraform; CodePipeline, CodeBuild, CodeDeploy, GitLab CI, and Jenkins for automated test, build, and release.}
+        \item {\cvitemlead{Engineering deliveries:} designed and built internal BAM tooling (Python, Boto3) for one-click provisioning and teardown of ephemeral environments; C\# refactor delivering $\sim$30\% lower response time and $\sim$40\% higher TPS; AWS SAM for industrialized Lambda and REST APIs with DynamoDB and CloudWatch Logs; L2/L3 support, security-oriented reviews, and architecture assessments.}
       \end{cvitemsafterintro}
     }
-    {AWS, Python, Node.js, .NET Core, Docker, Kubernetes, CDK, Terraform.}
+    {AWS (EC2, ASG, ALB/NLB, ECS, EKS, Organizations, IAM Identity Center, Lambda, RDS, OpenSearch, DynamoDB, ElastiCache, SQS, SNS, EventBridge, CloudFront, S3, KMS, WAF, Route~53, CloudWatch), Python, Node.js, .NET Core, CDK, CloudFormation, Terraform, GitLab, Jenkins, CodePipeline, Docker, Kubernetes.}
 
 %---------------------------------------------------------
   \cventrywithintro
