@@ -77,3 +77,8 @@ Le `Makefile` appelle **LuaLaTeX** ; les `.tex` peuvent indiquer **XeLaTeX** en 
 
 - [Awesome-CV](https://github.com/posquit0/Awesome-CV) — Claud D. Park (modèle d’origine, licence CC BY-SA 4.0).
 - Font Awesome 6 (paquet LaTeX), polices du modèle (ex. Source Sans 3) : voir la doc du dépôt upstream.
+
+
+```bash
+ docker run --rm --user "$(id -u):$(id -g)" -v "$PWD":/work -w /work -e TEXINPUTS=/work: texlive/texlive:latest  make cv.pdf
+```
