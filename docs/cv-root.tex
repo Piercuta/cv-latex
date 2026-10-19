@@ -1,6 +1,8 @@
-% Shared CV body: set \cvvariant to `short` (default CV) or `long` (extended) before \input{cv-root.tex}
-% (see cv.tex = short, cv-long.tex = long).
+% Shared CV body: set \cvvariant (`short` | `long`) and optionally \cvlang (`en` | `fr`)
+% before \input{cv-root.tex}.
+% Entry points: cv.tex (short EN), cv-long.tex (long EN), cv-long-fr.tex (long FR).
 \providecommand{\cvvariant}{short}
+\providecommand{\cvlang}{en}
 
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
@@ -21,9 +23,15 @@
 %-------------------------------------------------------------------------------
 \photo{./docs/images/face_square.png}
 \name{Pierre}{Courteille}
-\position{Cloud Architect{\enskip\cdotp\enskip}DevOps Engineer}
-\address{Geneva, Switzerland}
-\dateofbirth{September 10th, 1991}
+\ifthenelse{\equal{\cvlang}{fr}}{%
+  \position{Architecte Cloud{\enskip\cdotp\enskip}Ingénieur DevOps}
+  \address{Genève, Suisse}
+  \dateofbirth{10 septembre 1991}
+}{%
+  \position{Cloud Architect{\enskip\cdotp\enskip}DevOps Engineer}
+  \address{Geneva, Switzerland}
+  \dateofbirth{September 10th, 1991}
+}
 
 
 \mobile{(+33) 06 08 04 22 44}
@@ -37,30 +45,52 @@
 
 \makecvheader
 
-\ifthenelse{\equal{\cvvariant}{short}}{%
-\makecvfooter
-  {\today}
-  {Pierre Courteille~~~·~~~Curriculum Vitae}
-  {\thepage}%
+\ifthenelse{\equal{\cvlang}{fr}}{%
+  \ifthenelse{\equal{\cvvariant}{long}}{%
+  \makecvfooter
+    {\today}
+    {Pierre Courteille~~~·~~~Curriculum Vitae (version étendue)}
+    {\thepage}%
+  }{%
+  \makecvfooter
+    {\today}
+    {Pierre Courteille~~~·~~~Curriculum Vitae}
+    {\thepage}%
+  }%
 }{%
-\makecvfooter
-  {\today}
-  {Pierre Courteille~~~·~~~Curriculum Vitae (extended)}
-  {\thepage}%
+  \ifthenelse{\equal{\cvvariant}{short}}{%
+  \makecvfooter
+    {\today}
+    {Pierre Courteille~~~·~~~Curriculum Vitae}
+    {\thepage}%
+  }{%
+  \makecvfooter
+    {\today}
+    {Pierre Courteille~~~·~~~Curriculum Vitae (extended)}
+    {\thepage}%
+  }%
 }
 
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %-------------------------------------------------------------------------------
-\input{cv/education.tex}
-\ifthenelse{\equal{\cvvariant}{long}}{%
-  \input{cv/skills-long.tex}}{%
-  \input{cv/skills-short.tex}}
-\input{cv/certificates.tex}
-\ifthenelse{\equal{\cvvariant}{long}}{%
-  \input{cv/experience-long.tex}}{%
-  \input{cv/experience-short.tex}}
+\ifthenelse{\equal{\cvlang}{fr}}{%
+  % French: long variant only for now (cv-long-fr.tex)
+  \input{cv/education-fr.tex}%
+  \input{cv/skills-long-fr.tex}%
+  \input{cv/certificates-fr.tex}%
+  \input{cv/experience-long-fr.tex}%
+}{%
+  \input{cv/education.tex}%
+  \ifthenelse{\equal{\cvvariant}{long}}{%
+    \input{cv/skills-long.tex}}{%
+    \input{cv/skills-short.tex}}%
+  \input{cv/certificates.tex}%
+  \ifthenelse{\equal{\cvvariant}{long}}{%
+    \input{cv/experience-long.tex}}{%
+    \input{cv/experience-short.tex}}%
+}
 
 
 %-------------------------------------------------------------------------------

@@ -1,0 +1,103 @@
+% Long CV (FR): natural francophone IT phrasing; keep product / service names in English.
+%-------------------------------------------------------------------------------
+\cvsection{Expérience professionnelle}
+
+
+\begin{cventries}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {Cloud Engineer}
+    {Qim info / International Electrotechnical Commission (IEC)}
+    {Genève, Suisse}
+    {oct.\ 2025 – aujourd'hui}
+    {L'IEC est une organisation internationale de normalisation basée à Genève (technologies électriques, électroniques et connexes). Au sein de l'IT, je porte les sujets AWS de bout en bout : conception et livraison d'une plateforme SaaS multi-tenant sécurisée et scalable, et amélioration continue du monitoring, de l'observabilité, du réseau et de la sécurité pour gagner en fiabilité, visibilité et performance.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{Réseau :} VPC multi-AZ (sous-réseaux publics, privés et isolés) ; un VPC dédié par tenant avec Security Groups stricts ; interconnexion maîtrisée via AWS Transit Gateway.}
+        \item {\cvitemlead{Compute \& orchestration :} charges containerisées sur ECS (Fargate) ; patterns event-driven avec Lambda et API Gateway ; EC2, Auto Scaling Groups et ALB/NLB selon les besoins.}
+        \item {\cvitemlead{Données \& cache :} RDS (Aurora MySQL/PostgreSQL, Aurora Serverless v2) ; DocumentDB ; ElastiCache (Redis, Memcached) pour le cache applicatif et la latence.}
+        \item {\cvitemlead{IaC \& industrialisation des tenants :} codebase AWS CDK modulaire et réutilisable pour déployer automatiquement l'infra complète par tenant ; CloudFormation et Terraform pour les stacks legacy ou spécifiques ; patterns d'architecture standardisés et environnements reproductibles ; onboarding client industrialisé (comptes AWS + stack provisionnés en quelques minutes).}
+        \item {\cvitemlead{Observabilité (multi-comptes / multi-régions) :} observabilité centralisée dans un compte de monitoring dédié sous AWS Organizations ; CloudWatch Observability Access Manager (OAM) ; métriques, logs et traces centralisés ; Amazon Managed Grafana ; métriques applicatives type Prometheus ; alerting CloudWatch Alarms et SNS.}
+        \item {\cvitemlead{CI/CD \& automatisation :} pipelines GitLab CI/CD avancés pour le déploiement sécurisé et automatisé de l'infra et des applications cross-comptes AWS ; pipelines dynamiques et paramétrés ; déploiements idempotents ; build, test et déploiement de microservices ; rôles IAM via STS (AssumeRole) ; tuning CI (parallélisation, cycles build/deploy plus courts).}
+      \end{cvitemsafterintro}
+    }
+    {AWS (Organizations, CDK, CloudFormation, Terraform, ECS Fargate, Lambda, API Gateway, RDS, Aurora, DocumentDB, ElastiCache, Transit Gateway, CloudWatch, OAM, Grafana, GitLab CI, SNS, EC2, ALB, NLB), Python.}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {Cloud Engineer (freelance)}
+    {Premaccess}
+    {Paris, France}
+    {juin 2019 – sept.\ 2025}
+    {Premaccess est une ESN franco-suisse spécialisée dans la transformation digitale et les services managés AWS. J'ai accompagné de nombreux clients---notamment Smartpush, ATA Electronics, Cap Adrenaline, BNC, Fitizzy, Truffaut, Prestigia---sur des migrations cloud de bout en bout, l'évolution continue et l'optimisation de leurs environnements AWS.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{Adoption \& croissance cloud :} migrations AWS de bout en bout, puis modernisation itérative (containers, serverless, data, edge) au fil des besoins métier.}
+        \item {\cvitemlead{Réseau \& sécurité :} VPC multi-AZ (public / privé / isolé) ; Security Groups et NACLs durcis ; VPC Endpoints et VPC Flow Logs ; identité centralisée via IAM Identity Center, IAM et SCPs ; chiffrement KMS.}
+        \item {\cvitemlead{Compute \& orchestration :} ECS (Fargate) et EKS pour des microservices résilients ; Lambda + API Gateway pour les charges event-driven ; EC2 avec Auto Scaling et ALB/NLB quand nécessaire.}
+        \item {\cvitemlead{Données \& analytics :} RDS (Aurora MySQL/PostgreSQL, Serverless v2) ; DynamoDB pour le NoSQL faible latence ; Redshift pour le warehouse et l'analytique lourde ; ElastiCache selon les cas.}
+        \item {\cvitemlead{Messaging \& intégration :} SQS, SNS et EventBridge pour l'intégration asynchrone et event-driven.}
+        \item {\cvitemlead{Edge \& distribution :} CloudFront avec OAC/OAI et WAF ; Route~53 et ACM pour l'automatisation DNS et TLS.}
+        \item {\cvitemlead{Observabilité, sécu ops \& FinOps :} CloudWatch Logs/Metrics/Alarms, X-Ray, GuardDuty, AWS Config, Security Hub ; dashboards de coûts (Cost Explorer, Budgets, CUR) et optimisation FinOps.}
+        \item {\cvitemlead{CI/CD \& IaC :} AWS CDK, CloudFormation et Terraform ; CodePipeline, CodeBuild, CodeDeploy, GitLab CI et Jenkins pour test, build et release automatisés.}
+        \item {\cvitemlead{Livrables techniques :} outil interne BAM (Python, Boto3) pour le provisioning / teardown one-click d'environnements éphémères ; refactoring C\# avec $\sim$30\,\% de temps de réponse en moins et $\sim$40\,\% de TPS en plus ; AWS SAM pour industrialiser Lambda et APIs REST (DynamoDB, CloudWatch Logs) ; support L2/L3, revues sécurité et assessments d'architecture.}
+      \end{cvitemsafterintro}
+    }
+    {AWS (EC2, ASG, ALB/NLB, ECS, EKS, Organizations, IAM Identity Center, Lambda, RDS, OpenSearch, DynamoDB, ElastiCache, SQS, SNS, EventBridge, CloudFront, S3, KMS, WAF, Route~53, CloudWatch), Python, Node.js, .NET Core, CDK, CloudFormation, Terraform, GitLab, Jenkins, CodePipeline, Docker, Kubernetes.}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {Formateur .NET \& Software Engineer (freelance)}
+    {ISIKA}
+    {Paris, France}
+    {mars 2020 – avr.\ 2023}
+    {Formation C\# / .NET centrée sur l'OOP et la conception applicative. Alliage de pédagogie structurée et de pratique terrain pour permettre aux apprenants de livrer de petites applications de bout en bout.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{Formation technique :} bases C\#, OOP (classes, héritage, polymorphisme), développement desktop (WinForms), debug et structuration du code.}
+        \item {\cvitemlead{Développement applicatif :} accompagnement sur des apps complètes (persistance LINQ, Entity Framework, MySQL), découpage en couches et premier réflexe de tests.}
+        \item {\cvitemlead{Pédagogie :} suivi de projets, coaching individuel, grilles d'évaluation ; rythme adapté à des publics pros.}
+        \item {\cvitemlead{Supports de cours :} exercices et exemples calés sur des cas métier (CRUD, validation, patterns UI simples).}
+      \end{cvitemsafterintro}
+    }
+    {C\#, HTML5, Entity Framework, LINQ, MySQL, WinForms.}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {Responsable Assurance Qualité Logicielle}
+    {Bassetti}
+    {Région de Kolkata, Inde}
+    {févr.\ 2016 – mai 2018}
+    {Construction et management d'une organisation QA en Inde : leadership d'équipe, automatisation de tests à grande échelle et pratiques DevOps. Objectif : débit, traçabilité et releases prévisibles.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{Recrutement \& management :} recrutement, formation et encadrement de 25+ ingénieurs QA ; parcours, matrice de compétences et onboarding d'équipes distribuées.}
+        \item {\cvitemlead{Automatisation \& outillage :} co-conception d'une plateforme interne exécutant 10\,000+ tests API/heure ; couverture, réduction de flakiness et reporting pour le management.}
+        \item {\cvitemlead{Qualité \& delivery :} collaboration serrée avec le dev ; boucles de feedback automatisées, runs quotidiens, cycles de régression raccourcis avant release.}
+        \item {\cvitemlead{Process \& DevOps :} introduction de pratiques DevOps (ownership partagé des quality gates, intégration CI), handoffs QA--dev plus clairs, cadence accélérée sans sacrifier les contrôles critiques.}
+        \item {\cvitemlead{Métriques :} suivi des tendances de défauts, du taux d'échappement et du ROI de l'automatisation pour prioriser les bons investissements dans la stack.}
+      \end{cvitemsafterintro}
+    }
+    {C\#, .NET, Selenium, Jenkins, APIs, XML, Excel.}
+
+%---------------------------------------------------------
+  \cventrywithintro
+    {Optimization Engineer}
+    {Kronos Incorporated (Ad Opt)}
+    {Montréal, Canada}
+    {janv.\ 2015 – janv.\ 2016}
+    {Ad Opt (Kronos) --- optimisation de la planification des équipages aériens (coût et efficacité opérationnelle). Mix R\&D, expérimentation computationnelle intensive et delivery client.}
+    {
+      \begin{cvitemsafterintro}
+        \item {\cvitemlead{Optimisation algorithmique :} gains de perf via génération de colonnes et plus courts chemins sur de grandes instances ; profiling et implémentations C/C++ attentives à la mémoire.}
+        \item {\cvitemlead{Validation :} tests intensifs sur des milliers d'instances ; cas limites et stabilité avant mise en production.}
+        \item {\cvitemlead{Production :} déploiements clients, support d'intégration et tuning avec les équipes ops.}
+        \item {\cvitemlead{R\&D :} présentations au GERAD ; contributions à des publications scientifiques ; partage sur les choix de modélisation et le comportement des solveurs.}
+        \item {\cvitemlead{Pratiques d'ingénierie :} toolchain Linux, GDB, Git ; collaboration chercheurs / produit sur la formalisation des besoins.}
+      \end{cvitemsafterintro}
+    }
+    {C, C++, Linux, GDB, Git.}
+
+%---------------------------------------------------------
+\end{cventries}
